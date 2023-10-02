@@ -1,0 +1,1 @@
+{"name":"Local: setPrecision","url":"c:\\Phitron\\XPSC\\Regular\\week-01\\setPrecision.cpp","tests":[{"id":1696230572242,"input":"3.74","output":"4"},{"id":1696230834975,"input":"3.25","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Phitron\\XPSC\\Regular\\week-01\\setPrecision.cpp","group":"local","local":true}
