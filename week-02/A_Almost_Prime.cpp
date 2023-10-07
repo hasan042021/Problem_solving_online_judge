@@ -1,35 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isPrime(int num)
-{
-    if (num <= 1)
-    {
-        return false;
-    }
-    if (num == 2)
-    {
-        return true;
-    }
-    if (num % 2 == 0)
-    {
-        return false;
-    }
-    for (int i = 3; i <= sqrt(num); i += 2)
-    {
-        if (num % i == 0)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main()
 {
     int n;
     cin >> n;
-    int cnt = 0;
+    int count = 0;
     for (int i = 1; i <= n; i++)
     {
         int d = i;
@@ -48,31 +24,24 @@ int main()
             else
                 divisor++;
         }
-        // for (int d : divisors)
-        // {
-        //     cout << d << " ";
-        // }
         cout << endl;
         map<int, int> cnt;
         for (int j = 0; j < divisors.size(); j++)
         {
-            cnt[divisors[i]]++;
+            cnt[divisors[j]]++;
         }
         int n_d = 0;
-        for (int j = 0; j < sizeof(freq); j++)
+        for (auto e : cnt)
         {
-            cout << freq[j] << " ";
-            // if (freq[i] > 0)
-            //     n_d++;
+            if (e.second > 0)
+                n_d++;
         }
-        cout << endl;
-        // if (n == 2 && isPrime(divisors[0]) && isPrime(divisors[1]) && (divisors[0] != divisors[1]))
-        // {
-        //     cnt++;
-        // }
+
         if (n_d == 2)
-            cnt++;
+        {
+            count++;
+        }
     }
-    cout << cnt << endl;
+    cout << count << endl;
     return 0;
 }
