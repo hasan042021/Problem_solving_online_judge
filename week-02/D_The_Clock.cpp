@@ -13,9 +13,11 @@ int main()
         int n = 1440 / b;
         int cnt = 0;
         string cur_time = a;
-
-        for (int i = 0; i < n; i++)
+        string check;
+        while (true)
         {
+            if (check == a)
+                break;
             // extract time;
             int cur_hr = (cur_time[0] - '0') * 10 + (cur_time[1] - '0');
             int cur_min = (cur_time[3] - '0') * 10 + (cur_time[4] - '0');
@@ -66,6 +68,7 @@ int main()
             }
 
             cur_time = newTime;
+            check = newTime;
         }
 
         cout << cnt << endl;
