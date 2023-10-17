@@ -19,24 +19,35 @@ int main()
             mp[a]++;
             mx = max(mx, mp[a]);
         }
-        vector<pair<ll, ll>> v(mp.begin(), mp.end());
-        sort(v.begin(), v.end());
+        list<pair<ll, ll>> l(mp.begin(), mp.end());
+        l.sort();
+
         int doll = 0;
         while (mx > 0)
         {
-            for (auto e : v)
+            auto it = l.begin();
+            while (it != l.end())
             {
+                auto e = *it;
                 // next value does not exist
                 if (mp[e.first] > 0 && mp.find(e.first + 1) == mp.end())
                 {
                     doll++;
                 }
-                // next value exist but no more
+                // next value exists but no more
                 else if (mp[e.first] > 0 && mp.find(e.first + 1) != mp.end() && mp[e.first + 1] <= 0)
                 {
                     doll++;
                 }
                 mp[e.first]--;
+                if (mp[e.first] == 0)
+                {
+                    it = l.erase(it);
+                }
+                else
+                {
+                    ++it;
+                }
             }
             mx--;
         }
