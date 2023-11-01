@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define ll long
 
 int main()
 {
@@ -16,7 +17,7 @@ int main()
 
         set<int> s;
         int visited = 0;
-        for (int i = 0; i < n; i++)
+        for (int i = n - 1; i >= 0; i--)
         {
             s.insert(a[i]);
             visited++;
