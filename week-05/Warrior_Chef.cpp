@@ -1,10 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long int
-#define M 1000000007
 
-ll f(ll a[], ll s, ll n, ll res)
+#define ll long long
+const ll M = 1000000007;
+
+bool isPossible(ll a[], ll s, ll n, ll res)
 {
+    ll remainingSum = s;
     for (int i = 0; i < n; i++)
     {
         if (a[i] <= res)
@@ -13,45 +15,28 @@ ll f(ll a[], ll s, ll n, ll res)
         }
         else
         {
-            if ((s - a[i]) <= 0)
+            if (remainingSum - a[i] <= 0)
             {
-                return 0;
+                return false;
             }
             else
             {
-                s -= a[i];
+                remainingSum -= a[i];
             }
         }
     }
-    if (s > 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return remainingSum > 0;
 }
 
-void solve()
+ll findMinimumValue(ll a[], ll s, ll n)
 {
-    ll n, s;
-    cin >> n >> s;
-    ll a[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> a[i];
-    }
-
     ll lo = 0, hi = 100001;
 
     while (hi - lo > 0)
     {
         ll mid = (lo + hi) / 2;
 
-        ll check = f(a, s, n, mid);
-
-        if (check == 0)
+        if (!isPossible(a, s, n, mid))
         {
             lo = mid + 1;
         }
@@ -61,26 +46,31 @@ void solve()
         }
     }
 
-    ll check = f(a, s, n, lo);
-    if (check == 1)
+    if (isPossible(a, s, n, lo))
     {
-        cout << lo << endl;
+        return lo;
     }
     else
     {
-        cout << hi << endl;
+        return hi;
     }
 }
 
 int main()
 {
-
     int t;
     cin >> t;
     while (t--)
     {
-        solve();
+        ll n, s;
+        cin >> n >> s;
+        ll a[n];
+        for (int i = 0; i < n; i++)
+        {
+            cin >> a[i];
+        }
+        ll minVal = findMinimumValue(a, s, n);
+        cout << minVal << endl;
     }
-
     return 0;
 }
