@@ -6,38 +6,39 @@ int main()
     cin >> t;
     while (t--)
     {
-        bool flag = true;
         int n;
         cin >> n;
         string s;
         cin >> s;
-        vector<char> v;
+        int zeros = 0, ones = 0;
         for (int i = 0; i < n; i++)
         {
-            v.push_back(s[i]);
-        }
-        int i = 0, z = 1;
-        while (v.size() > 1)
-        {
-            if (v[i] != v[i + 1])
-            {
-                z = i + 1;
-                v.erase(v.begin() + i, v.begin() + z + 1);
-                if (flag)
-                    flag = false;
-                else
-                    flag = true;
-            }
+            if (s[i] == '0')
+                zeros++;
             else
-            {
-
-                break;
-            }
+                ones++;
         }
-
-        if (!flag)
-            cout << "Zlatan" << endl;
+        // cout << zeros << " " << ones << " ";
+        if (zeros == ones)
+        {
+            if (zeros % 2 == 0)
+                cout << "Ramos" << endl;
+            else
+                cout << "Zlatan" << endl;
+        }
+        else if (zeros > ones)
+        {
+            if (ones % 2 == 0)
+                cout << "Ramos" << endl;
+            else
+                cout << "Zlatan" << endl;
+        }
         else
-            cout << "Ramos" << endl;
+        {
+            if (zeros % 2 == 0)
+                cout << "Ramos" << endl;
+            else
+                cout << "Zlatan" << endl;
+        }
     }
 }
