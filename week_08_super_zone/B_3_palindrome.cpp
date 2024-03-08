@@ -9,7 +9,7 @@ int main()
     {
         if (i % 4 == 1 || i % 4 == 2)
             cout << "a";
-        else if (i % 4 == 3 || i % 4 == 4)
+        else if (i % 4 == 3 || i % 4 == 0)
             cout << "b";
     }
     return 0;
