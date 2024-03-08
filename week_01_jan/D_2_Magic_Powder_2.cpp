@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
+#define ll unsigned long long
 
 bool search(ll v, ll k, ll a[], ll b[], ll n)
 {
