@@ -25,7 +25,6 @@ int main()
             int cur = 0;
             for (int k = 1; k <= sqrt(i); k++)
             {
-
                 if (i % k == 0)
                 {
                     cur += mp[k];
